@@ -59,6 +59,18 @@
 
 			map.addLayers([layerOSM, mapboxLayer]);
 
+
+			// Capa Territorio nacional	  // utilizando servicio WMS
+			var nombreWMS = "Division departamental";
+			var urlWMS = "http://geo.gob.bo/geoserver/wms";
+			var propiedadesWMS = {
+				                   layers:'fondos:departamento1' ,
+				                   transparent: true
+			                     };
+			                     
+			var layerDepartamentosWMS = new OpenLayers.Layer.WMS(nombreWMS, urlWMS, propiedadesWMS);
+			layerDepartamentosWMS.setVisibility(false);
+			map.addLayer(layerDepartamentosWMS);
             
 
 
