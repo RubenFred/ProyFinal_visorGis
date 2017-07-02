@@ -42,9 +42,20 @@
 			var layerOSM = new OpenLayers.Layer.OSM();
 			map.addLayer(layerOSM);
 
-			if(!map.getCenter()){
-			 map.zoomToMaxExtent();
- 			}
+			
+
+
+			// Configuración para mostrar la región de Bolivia
+			// Lon: -64.819336, Lat: -17.379999
+			var LonLat = new OpenLayers.LonLat(-64.819336, -17.379999);
+			var zoom = 5;
+			var LonLatTransformado = LonLat.transform(
+				new OpenLayers.Projection("EPSG:4326"),  
+				map.getProjection()      //new OpenLayers.Projection("EPSG:900913")
+			);
+			map.setCenter(LonLatTransformado, zoom);
+
+
 
 
 		}
